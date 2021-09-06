@@ -2,7 +2,7 @@
 {
     public class AddRequest
     {
-        public string AddIn1 { get; set; }
-        public string AddIn2 { get; set; }
+        public string Addend1 { get; set; }
+        public string Addend2 { get; set; }
     }
 }

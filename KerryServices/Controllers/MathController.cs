@@ -13,23 +13,23 @@ namespace KerryServices.Controllers
         [Authorize("math:add")]
         public async Task<ActionResult<AddResponse>> Add(AddRequest request)
         {
-            int addIn1;
-            if (!int.TryParse(request.AddIn1, out addIn1))
+            int addend1;
+            if (!int.TryParse(request.Addend1, out addend1))
             {
-                ModelState.AddModelError(nameof(request.AddIn1), $"Invalid integer, value:'{request.AddIn1}'");
+                ModelState.AddModelError(nameof(request.Addend1), $"Invalid integer, value:'{request.Addend1}'");
             }
 
-            int addIn2;
-            if (!int.TryParse(request.AddIn2, out addIn2))
+            int addend2;
+            if (!int.TryParse(request.Addend2, out addend2))
             {
-                ModelState.AddModelError(nameof(request.AddIn2), $"Invalid intger, value:'{request.AddIn2}'");
+                ModelState.AddModelError(nameof(request.Addend2), $"Invalid intger, value:'{request.Addend2}'");
             }
 
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var response = new AddResponse();
 
-            response.Sum = await Task.FromResult(addIn1 + addIn2);
+            response.Sum = await Task.FromResult(addend1 + addend2);
 
             return response;
         }
